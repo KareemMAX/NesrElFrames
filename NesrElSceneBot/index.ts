@@ -29,25 +29,26 @@ const timerTrigger: AzureFunction = async function (context: Context, myTimer: a
     const baseUrl = "/mnt/videos/";
 
     let videos = readdirSync(baseUrl);
-    if(state.folder >= videos.length) {
-        return;
+    for (let i = 0; i < 5; i++){
+        if(state.folder >= videos.length) {
+            return;
+        }
+        let frames = readdirSync(path.join(baseUrl, videos[state.folder]));
+        let currentFrame = path.join(baseUrl, videos[state.folder], frames[state.file])
+
+        const mediaId = await userClient.v1.uploadMedia(currentFrame);
+        const newTweet = await userClient.v1.tweet(`${videos[state.folder]} - Frame ${(state.file / 25) + 1} of ${Math.floor(frames.length / 25) + 1}`, { media_ids: mediaId });
+
+
+        context.log(newTweet);
+        context.log(state);
+        context.log(`Current file: ${currentFrame}`);
+        state.file += 25;
+        if (state.file >= frames.length) {
+            state.file = 0;
+            state.folder += 1;
+        }
     }
-    let frames = readdirSync(path.join(baseUrl, videos[state.folder]));
-    let currentFrame = path.join(baseUrl, videos[state.folder], frames[state.file])
-
-    const mediaId = await userClient.v1.uploadMedia(currentFrame);
-    const newTweet = await userClient.v1.tweet(`${videos[state.folder]} - Frame ${state.file / 25} out of ${frames.length / 25}`, { media_ids: mediaId });
-
-
-    context.log(newTweet);
-    context.log(state);
-    context.log(`Current file: ${currentFrame}`);
-    state.file += 25;
-    if (state.file >= frames.length) {
-        state.file = 0;
-        state.folder += 1;
-    }
-
     writeFileSync("/mnt/videos/state.json", JSON.stringify(state))
 };
 
