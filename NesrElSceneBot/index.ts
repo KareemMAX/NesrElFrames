@@ -1,5 +1,5 @@
 import { AzureFunction, Context } from "@azure/functions"
-import { readFileSync, writeFileSync, readdirSync, stat, readdir } from 'fs';
+import { readFileSync, writeFileSync, readdirSync } from 'fs';
 import { TwitterApi } from 'twitter-api-v2';
 import * as path from 'path';
 
