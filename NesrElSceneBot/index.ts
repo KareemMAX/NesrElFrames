@@ -24,7 +24,7 @@ const timerTrigger: AzureFunction = async function (context: Context, myTimer: a
         accessSecret: TOKENSECRET,
       });
 
-    let state: State = JSON.parse(readFileSync("/mnt/videos/state.json", "utf8"));
+    let state: State = JSON.parse(readFileSync("/mnt/state.json", "utf8"));
 
     const baseUrl = "/mnt/videos/";
 
@@ -49,7 +49,7 @@ const timerTrigger: AzureFunction = async function (context: Context, myTimer: a
             state.folder += 1;
         }
     }
-    writeFileSync("/mnt/videos/state.json", JSON.stringify(state))
+    writeFileSync("/mnt/state.json", JSON.stringify(state))
 };
 
 export default timerTrigger;

@@ -17,4 +17,5 @@ const client = new TwitterApi.TwitterApi({
 
 let timeline;
 let tweetIds;
+// Deletes latest 20 tweets
 client.v1.userTimelineByUsername('NesrElFrames').then((x)=> timeline = x).then(() => tweetIds = timeline.tweets.map((tweet) => tweet.id_str)).then(() => tweetIds.forEach((id) => client.v1.deleteTweet(id)))
