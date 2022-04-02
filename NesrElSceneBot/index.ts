@@ -12,6 +12,8 @@ const CONSUMERKEY = process.env.ConsumerKey;
 const CONSUMERSECRET = process.env.ConsumerSecret;
 const TOKENKEY = process.env.AccessToken;
 const TOKENSECRET = process.env.TokenSecret;
+const SKIPPEDFRAMES = 25;
+const FRAMEEACHRUN = 5;
 
 const timerTrigger: AzureFunction = async function (context: Context, myTimer: any): Promise<void> {
     const userClient = new TwitterApi({
@@ -29,7 +31,7 @@ const timerTrigger: AzureFunction = async function (context: Context, myTimer: a
     const baseUrl = "/mnt/videos/";
 
     let videos = readdirSync(baseUrl);
-    for (let i = 0; i < 5; i++){
+    for (let i = 0; i < FRAMEEACHRUN; i++){
         if(state.folder >= videos.length) {
             return;
         }
@@ -37,13 +39,13 @@ const timerTrigger: AzureFunction = async function (context: Context, myTimer: a
         let currentFrame = path.join(baseUrl, videos[state.folder], frames[state.file])
 
         const mediaId = await userClient.v1.uploadMedia(currentFrame);
-        const newTweet = await userClient.v1.tweet(`${videos[state.folder]} - Frame ${(state.file / 25) + 1} of ${Math.floor(frames.length / 25) + 1}`, { media_ids: mediaId });
+        const newTweet = await userClient.v1.tweet(`${videos[state.folder]} - Frame ${(state.file / SKIPPEDFRAMES) + 1} of ${Math.floor(frames.length / SKIPPEDFRAMES) + 1}`, { media_ids: mediaId });
 
 
         context.log(newTweet);
         context.log(state);
         context.log(`Current file: ${currentFrame}`);
-        state.file += 25;
+        state.file += SKIPPEDFRAMES;
         if (state.file >= frames.length) {
             state.file = 0;
             state.folder += 1;
