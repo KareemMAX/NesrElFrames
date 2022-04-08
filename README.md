@@ -1,4 +1,4 @@
-# Nesr El Frames Bot
+# Nesr El Frames
 
 [![Follow me](https://img.shields.io/twitter/follow/NesrElFrames?labelColor=1DA1F2&color=777777&logo=twitter&logoColor=white&style=flat-square)](https://twitter.com/NesrElFrames)
 
@@ -257,7 +257,12 @@ Using function apps was for minimizing cost of unnecessary resources, thus reduc
 
 These figures were recorded after processing 5 videos with 77,464 frames (52 minutes and 38 seconds) amounting to 132.25 GiB of data. And after posting 1,415 tweets (23 minutes and 35 seconds).
 
+---
+
+[!["Buy Me A Nescafé"](docs/bmc-button.svg)](https://www.buymeacoffee.com/kreemmorsy)
+
 ## Disclaimer
 
 This application was made for fun and I have no intent to use it commercially and I am not endorsing anyone to use it in a way that **harms content creators in any means**.  
-Please if you want to use it credit the author of the movie/show, if you want to use this repository **commercially** you will have to get **a consent from the show creator as well as me**.
+Please if you want to use it credit the author of the movie/show, if you want to use this repository **commercially** you will have to get **a consent from the show creator as well as me**.  
+This software and its source code is licensed under the [GNU General Public License v3.0](LICENSE), permissions of this strong copyleft license are conditioned on making available complete source code of licensed works and modifications. Please refer to the [license](LICENSE) for more information.
