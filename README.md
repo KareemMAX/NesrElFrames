@@ -260,10 +260,6 @@ As seen above, the application was heavily optimized for execution as expected. 
 
 [!["Buy Me A Nescafé"](docs/bmc-button.svg)](https://www.buymeacoffee.com/kreemmorsy)
 
----
-
-[!["Buy Me A Nescafé"](docs/bmc-button.svg)](https://www.buymeacoffee.com/kreemmorsy)
-
 ## Disclaimer
 
 This application was made for fun and I have no intent to use it commercially and I am not endorsing anyone to use it in a way that **harms content creators in any means**.  
