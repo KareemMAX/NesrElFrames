@@ -240,22 +240,21 @@ There are some constants you can tinker with in the [code](NesrElSceneBot/index.
 
 ### Costs
 
-<!-- TODO Update costs -->
-
 Using function apps was for minimizing cost of unnecessary resources, thus reducing costs. But because of my ad-hoc style of creating the bot these figures maybe change.
 
 | Service name     | Service resource     | Spend |
 |------------------|----------------------|-------|
-| Storage          | LRS Write Operations | $3.75 |
-| Storage          | LRS Data Stored      | $0.71 |
-| Storage          | Read Operations      | $0.25 |
-| Storage          | Protocol Operations  | $0.25 |
-| Log Analytics    | Data Ingestion       |  $0.1 |
-| Storage          | P10 Disks            | $0.03 |
-| Functions        | Execution Time       | $0.02 |
-| Total            |                      | $5.25 |
+| Storage          | LRS Write Operations | $3.93 |
+| Storage          | LRS Data Stored      | $2.70 |
+| Storage          | Read Operations      | $0.31 |
+| Storage          | Protocol Operations  | $0.27 |
+| Log Analytics    | Data Ingestion       | $0.21 |
+| Functions        | Execution Time       | $0.04 |
+| Total            |                      | $7.46 |
 
-These figures were recorded after processing 5 videos with 77,464 frames (52 minutes and 38 seconds) amounting to 132.25 GiB of data. And after posting 1,415 tweets (23 minutes and 35 seconds).
+These figures were recorded after processing 5 videos with 77,464 frames (52 minutes and 38 seconds) amounting to 132.25 GiB of data.
+
+As seen above, the application was heavily optimized for execution as expected. But it wasn't optimized for storage which wasn't accounted for previously. Further improvements would be to optimize storage usage more, most likely by removing the need to store all frames on the disk and instead extracting only the needed frames using `FFMPEG`.
 
 ---
 
