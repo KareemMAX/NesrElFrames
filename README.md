@@ -13,7 +13,7 @@ But servers are expensive right?
 ## Serverless applications
 
 What if I told you that you don't need a server to run all of those things? Just write a small piece of code and run it on the cloud every a fixed interval.  
-This is called [serverless computing](https://en.wikipedia.org/wiki/Serverless_computing). One of the serverless computing tools you can use is FasS or [Function as a Service](https://en.wikipedia.org/wiki/Function_as_a_service) in which you can write a code for a small program and the cloud provider will run it every interval you decide. Saving you the hassle of deployment and money of running a server running a small program every half an hour.
+This is called [serverless computing](https://en.wikipedia.org/wiki/Serverless_computing). One of the serverless computing tools you can use is FaaS or [Function as a Service](https://en.wikipedia.org/wiki/Function_as_a_service) in which you can write a code for a small program and the cloud provider will run it every interval you decide. Saving you the hassle of deployment and money of running a server running a small program every half an hour.
 
 ## How did I do it?
 
